@@ -1,7 +1,7 @@
 <!-- 
 	Jefferson Lam
 	12-3-13
-	PHP Advanced 1
+	PHP Advanced 1 : User Table
 -->
 
 <?php
@@ -61,7 +61,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PHP Advanced 1</title>
+	<title>PHP Advanced 1 : User Table</title>
 	<meta charset='UTF-8'>
 	<meta name="description" content="">
 	<meta name="keywords" content="">

@@ -1,7 +1,7 @@
 <!-- 
 	Jefferson Lam
 	12-3-13
-	PHP Advanced 2
+	PHP Advanced 2 : Checkerboards
 -->
 
 <?php
@@ -21,7 +21,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PHP Advanced 2</title>
+	<title>PHP Advanced 2 : Checkerboards</title>
 	<meta charset='UTF-8'>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -41,9 +41,10 @@
 <body>
 <div class="container">
 	<div class="board">
-		<?php 
-			checkerboard('#FFFFFF', '#556B2F');
-		?>
+		<?php checkerboard('red', 'black'); ?>
+	</div>
+	<div class="board">
+		<?php checkerboard('#FFFFFF', '#556B2F'); ?>
 	</div>
 </div>
 </body>
