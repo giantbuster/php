@@ -1,7 +1,7 @@
 <!-- 
 	Jefferson Lam
 	12-3-13
-	PHP Intermediate 1
+	PHP Intermediate 1 : Draw Stars
 -->
 
 <?php
@@ -33,7 +33,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PHP Intermediate 1</title>
+	<title>PHP Intermediate 1 : Draw Stars</title>
 	<meta charset='UTF-8'>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -48,7 +48,9 @@
 	<?php 
 		$stars = array(5, 2, 12, 8, 20, 1);
 		draw_stars($stars);
+
 		echo '<br>';
+
 		$mixed = array(4, "Tom", 1, "Michael", 5, 7, "Jimmy Smith");
 		draw_mixed($mixed);
 	?>
