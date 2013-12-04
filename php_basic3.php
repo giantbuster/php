@@ -44,7 +44,7 @@
 <div class="container">
 	<?php 
 		echo '<h4>Starting the program</h4>';
-		for ($i = 1; $i<5001; $i++){
+		for ($i = 1; $i<=5000; $i++){
 			echo '<p>Attempt #'.$i.': ';
 			throw_coin($coin);
 			print_result();

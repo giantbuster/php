@@ -5,7 +5,8 @@
 -->
 
 <?php
-	for ($i = 0; $i<100; $i++){
+	
+	function random_score(){
 		$score = rand(50, 100);
 		$grade = '';
 
@@ -34,6 +35,10 @@
 	</style>
 </head>
 <body>
-
+	<?php 
+		for ($i = 0; $i<100; $i++){
+			random_score();
+		}
+	?>
 </body>
 </html>

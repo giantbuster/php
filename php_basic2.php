@@ -5,8 +5,6 @@
 -->
 
 <?php
-	$states = array('CA', 'WA', 'VA', 'UT', 'AZ');
-
 	function option_forloop($array){
 		echo '<select>';
 		for ($i = 0; $i < sizeof($array); $i++){
@@ -40,9 +38,13 @@
 <body>
 <div class="container">
 	<?php 
+		$states = array('CA', 'WA', 'VA', 'UT', 'AZ');
+
 		option_forloop($states);
 	    option_foreachloop($states);
+
 		array_push($states, 'NJ', 'NY', 'DE');
+		
 		option_foreachloop($states);
 	?>
 </div>
