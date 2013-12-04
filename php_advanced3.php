@@ -20,8 +20,16 @@
 		return $array;
 	}
 
+	function swap($i, $j){
+		$tmp = $i;
+		$i = $j;
+		$j = $tmp;
+	}
+
 	function selection_sort($array){
 		$size = count($array);
+
+		//Loop through entire array
 		for ($i=0; $i < $size; $i++) { 
 			//Hold onto the ith element
 			$min = $i;
@@ -32,19 +40,19 @@
 			}
 
 			//Swap the smallest element with the ith element
-			$tmp = $array[$i];
-			$array[$i] = $array[$min];
-			$array[$min] = $tmp;
+			swap(&$array[$i], &$array[$min]);
 		}
 		return $array;
 	}
 
 	function selection_sort_modified($array){
 		$size = count($array);
+
+		//Loop through half of array
 		for ($i=0; $i < $size - $i; $i++) { 
-			//Create variables for index of min and max
 			$min = $i;
-			$max = $size - $i - 1;
+			$last = $size - $i - 1;
+			$max = $last;
 
 			//Find max and min after index i
 			for ($j=$i+1; $j < $size - $i; $j++) { 
@@ -53,15 +61,11 @@
 			}
 
 			//Swap the min element with the first element that hasn't been swapped
-			$tmp = $array[$i];
-			$array[$i] = $array[$min];
-			$array[$min] = $tmp;
+			swap(&$array[$i], &$array[$min]);
 
-			$last = $size - $i - 1;
+			
 			//Swap the max element with the last element that hasn't been swapped
-			$tmp = $array[$last];
-			$array[$last] = $array[$max];
-			$array[$max] = $tmp;
+			swap(&$array[$last], &$array[$max]);
 		}
 		return $array;
 	}
@@ -70,7 +74,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PHP Advanced 3</title>
+	<title>PHP Advanced 3 : Selection Sort</title>
 	<meta charset='UTF-8'>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -91,6 +95,7 @@
 		echo 'Start time : '.$start.'<br>';
 		echo 'End time : '.$end.'<br>';
 		echo 'Time elapsed : '.($end - $start).'<br><br>';
+
 
 
 		echo 'SELECTION SORT MODIFIED<br>';
