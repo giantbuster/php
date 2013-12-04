@@ -1,10 +1,11 @@
 <!-- 
 	Jefferson Lam
 	12-3-13
-	PHP Basic 4
+	PHP Basic 4 : Max and Min
 -->
 
 <?php
+	//Gets max and min of array, and puts them as their own indices in the array
 	function get_max_and_min($array){
 		$min = $array[0];
 		$max = $array[0];
@@ -26,7 +27,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PHP Basic 4</title>
+	<title>PHP Basic 4 : Max and Min</title>
 	<meta charset='UTF-8'>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -41,7 +42,7 @@
 	<?php 
 		$sample = array(23, 12, 5, 3, 42, 59, 1, 42, 90, 38, 64, 53);
 		print_r($sample);
-		echo '<br>';
+		echo '<br><br>';
 		$output = get_max_and_min($sample);
 		print_max_and_min($output);
 	?>
