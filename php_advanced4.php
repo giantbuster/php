@@ -21,12 +21,6 @@
 		return $array;
 	}
 
-	function swap($i, $j){
-		$tmp = $i;
-		$i = $j;
-		$j = $tmp;
-	}
-
 	function insertion_sort($array){
 		$size = count($array);
 		for ($i = 1; $i<$size; $i++){
@@ -73,7 +67,7 @@
 <div class="container">
 	<?php
 
-		$array = create_array(10000);
+		$array = create_array(100);
 		// print_array($array);
 
 		$start = microtime(true);

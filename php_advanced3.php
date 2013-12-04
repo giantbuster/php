@@ -20,7 +20,7 @@
 		return $array;
 	}
 
-	function swap($i, $j){
+	function swap(&$i, &$j){
 		$tmp = $i;
 		$i = $j;
 		$j = $tmp;
@@ -40,7 +40,7 @@
 			}
 
 			//Swap the smallest element with the ith element
-			swap(&$array[$i], &$array[$min]);
+			swap($array[$i], $array[$min]);
 		}
 		return $array;
 	}
@@ -61,11 +61,10 @@
 			}
 
 			//Swap the min element with the first element that hasn't been swapped
-			swap(&$array[$i], &$array[$min]);
-
+			swap($array[$i], $array[$min]);
 			
 			//Swap the max element with the last element that hasn't been swapped
-			swap(&$array[$last], &$array[$max]);
+			swap($array[$last], $array[$max]);
 		}
 		return $array;
 	}
@@ -88,7 +87,7 @@
 <div class="container">
 	<?php 
 		echo 'SELECTION SORT<br>';
-		$array = create_array(10000);
+		$array = create_array(100);
 		$start = microtime(true);
 		$array = selection_sort($array);
 		$end = microtime(true);
@@ -99,7 +98,7 @@
 
 
 		echo 'SELECTION SORT MODIFIED<br>';
-		$array = create_array(10000);
+		$array = create_array(100);
 		$start = microtime(true);
 		$array = selection_sort_modified($array);
 		$end = microtime(true);

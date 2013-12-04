@@ -21,7 +21,7 @@
 		return $array;
 	}
 
-	function swap($i, $j){
+	function swap(&$i, &$j){
 		$tmp = $i;
 		$i = $j;
 		$j = $tmp;
@@ -31,7 +31,7 @@
 		$size = count($array);
 		for ($i=$size-1; $i >= 0; $i--) { 
 			for ($j=0; $j<$i; $j++){
-				if ($array[$j] > $array[$j+1]) swap(&$array[$j+1], &$array[$j]);
+				if ($array[$j] > $array[$j+1]) swap($array[$j+1], $array[$j]);
 			}
 		}
 		return $array;
@@ -55,7 +55,7 @@
 <div class="container">
 	<?php
 
-		$array = create_array(10000);
+		$array = create_array(100);
 		// print_array($array);
 
 		$start = microtime(true);
