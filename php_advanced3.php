@@ -84,7 +84,7 @@
 <div class="container">
 	<?php 
 		echo 'SELECTION SORT<br>';
-		$array = create_array(3000);
+		$array = create_array(10000);
 		$start = microtime(true);
 		$array = selection_sort($array);
 		$end = microtime(true);
@@ -94,7 +94,7 @@
 
 
 		echo 'SELECTION SORT MODIFIED<br>';
-		$array = create_array(3000);
+		$array = create_array(10000);
 		$start = microtime(true);
 		$array = selection_sort_modified($array);
 		$end = microtime(true);
