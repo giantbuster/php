@@ -6,43 +6,55 @@
 
 <?php
 	function create_users_table($users){
+		$table_columns = array('User #', 
+			'First Name', 
+			'Last Name', 
+			'Full Name', 
+			'Full Name in upper case', 
+			'Length of name'
+		);
+		
 		//Create initial label row
 		echo '<table>';
 		echo '<tbody>';
 		echo '<tr>';
-		td('<strong>User #</strong>');
-		td('<strong>First Name</strong>');
-		td('<strong>Last Name</strong>');
-		td('<strong>Full Name</strong>');
-		td('<strong>Full Name in upper case</strong>');
-		td('<strong>Length of name</strong>');
+		foreach ($table_columns as $column){
+			td_strong($column);
+		}
 		echo '</tr>';
 
 		//Generate rows of data
 		$userNumber = 1;
-		$highlight = '';
 		foreach ($users as $user){
-			//Check if row should be highlighted
-			if ($userNumber%5==0) $highlight = 'class="highlight"';
-			else $highlight = '';
-			echo '<tr '.$highlight.'>';
+			//Highlight every 5th row
+			if ($userNumber%5==0) echo '<tr class="highlight">';
+			else echo '<tr>';
+
+			$first_name = trim($user['first_name']);
+			$last_name = trim($user['last_name']);
+			$full_name = $first_name.' '.$last_name;
 
 			//Create cells
-			td('<strong>'.$userNumber++.'</strong>');
-			td($user['first_name']);
-			td($user['last_name']);
-			td($user['first_name'].' '.$user['last_name']);
-			td(strtoupper($user['first_name'].' '.$user['last_name']));
+			td_strong($userNumber++);
+			td($first_name);
+			td($last_name);
+			td($full_name);
+			td(strtoupper($full_name));
+			td(strlen($full_name));
 
-			$length = strlen($user['first_name']) + strlen($user['last_name']);
-			td($length);
+			echo '</tr>';
 		}
 
 		echo '</tbody>';
 		echo '</table>';
 	}
+
 	function td($data){
 		echo '<td>'.$data.'</td>';
+	}
+
+	function td_strong($data){
+		echo '<td><strong>'.$data.'</strong></td>';
 	}
 ?>
 
@@ -84,12 +96,12 @@
 		    array('first_name' => 'John', 'last_name' => 'Supsupin'),
 		    array('first_name' => 'Mark', 'last_name' => ' Guillen'),
 		    array('first_name' => 'KBZ', 'last_name' => 'Tonel'),
-		    array('first_name' => 'KBA', 'last_name' => 'Tonel'),
-		    array('first_name' => 'KBB', 'last_name' => 'Tonel'),
-		    array('first_name' => 'KBC', 'last_name' => 'Tonel'),
-		    array('first_name' => 'KBD', 'last_name' => 'Tonel'),
-		    array('first_name' => 'KBE', 'last_name' => 'Tonel'),
-		    array('first_name' => 'KBF', 'last_name' => 'Tonel'),
+		    array('first_name' => 'KBA', 'last_name' => 'Toneel'),
+		    array('first_name' => 'KBB', 'last_name' => 'Toneeel'),
+		    array('first_name' => 'KBC', 'last_name' => 'Toneeeel'),
+		    array('first_name' => 'KBD', 'last_name' => 'Tone'),
+		    array('first_name' => 'KBE', 'last_name' => 'Ton'),
+		    array('first_name' => 'KBF', 'last_name' => 'To'),
 		    array('first_name' => 'KBG', 'last_name' => 'Tonel'),
 		    array('first_name' => 'KBH', 'last_name' => 'Tonel'),
 		    array('first_name' => 'KBI', 'last_name' => 'Tonel'),
