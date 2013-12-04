@@ -1,7 +1,7 @@
 <!-- 
 	Jefferson Lam
 	12-3-13
-	PHP Advanced 5
+	PHP Advanced 5 : Bubble Sort
 -->
 
 <?php
@@ -41,7 +41,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PHP Advanced 5</title>
+	<title>PHP Advanced 5 : Bubble Sort</title>
 	<meta charset='UTF-8'>
 	<meta name="description" content="">
 	<meta name="keywords" content="">

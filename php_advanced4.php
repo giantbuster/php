@@ -1,7 +1,7 @@
 <!-- 
 	Jefferson Lam
 	12-3-13
-	PHP Advanced 4
+	PHP Advanced 4 : Insertion Sort
 -->
 
 <?php
@@ -59,7 +59,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PHP Advanced 4</title>
+	<title>PHP Advanced 4 : Insertion Sort</title>
 	<meta charset='UTF-8'>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
