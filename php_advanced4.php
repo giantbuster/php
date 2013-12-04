@@ -73,7 +73,7 @@
 <div class="container">
 	<?php
 
-		$array = create_array(3000);
+		$array = create_array(10000);
 		// print_array($array);
 
 		$start = microtime(true);
