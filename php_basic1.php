@@ -1,7 +1,7 @@
 <!-- 
 	Jefferson Lam
 	12-3-13
-	PHP Basic 1
+	PHP Basic 1 : Score Randomizer
 -->
 
 <?php
@@ -24,7 +24,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PHP Basic 1</title>
+	<title>PHP Basic 1 : Score Randomizer</title>
 	<meta charset='UTF-8'>
 	<meta name="description" content="">
 	<meta name="keywords" content="">

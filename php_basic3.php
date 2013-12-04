@@ -1,7 +1,7 @@
 <!-- 
 	Jefferson Lam
 	12-3-13
-	PHP Basic 3
+	PHP Basic 3 : Coin Flip
 -->
 
 <?php
@@ -25,7 +25,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PHP Basic 3</title>
+	<title>PHP Basic 3 : Coin Flip</title>
 	<meta charset='UTF-8'>
 	<meta name="description" content="">
 	<meta name="keywords" content="">

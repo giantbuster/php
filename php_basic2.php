@@ -1,7 +1,7 @@
 <!-- 
 	Jefferson Lam
 	12-3-13
-	PHP Basic 2
+	PHP Basic 2 : Dropdown Menu
 -->
 
 <?php
@@ -25,7 +25,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PHP Basic 2</title>
+	<title>PHP Basic 2 : Dropdown Menu</title>
 	<meta charset='UTF-8'>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -44,7 +44,7 @@
 	    option_foreachloop($states);
 
 		array_push($states, 'NJ', 'NY', 'DE');
-		
+
 		option_foreachloop($states);
 	?>
 </div>
