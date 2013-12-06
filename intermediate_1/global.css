@@ -32,6 +32,12 @@ body{
 	text-align: center;
 }
 
+.destinations .goldbtn{
+	font-size: 14pt;
+	background: gold;
+	border-radius: 5px;
+}
+
 .footer{
 	clear: both;
 	margin-top: 50px;

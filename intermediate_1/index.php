@@ -1,9 +1,5 @@
 <?php
 	session_start();
-
-	if (isset($_SESSION['reset'])){
-		$_SESSION = array();
-	}	
 ?>
 
 <!--
@@ -30,15 +26,10 @@
 			<label>Your Gold:</label>
 			<div class="gold-amount"><span>
 				<?php
-					if (isset($_SESSION['feedback'])){
-						$sum = 0;
-						foreach($_SESSION['feedback']['gold'] as $value){
-							$sum += $value;
-						}
-						echo $sum;
-					} else {
-						echo 0;
+					if (!isset($_SESSION['feedback']['total'])){
+						$_SESSION['feedback']['total'] = 0;
 					}
+					echo $_SESSION['feedback']['total'];
 				?>
 			</span></div>
 		</div>
@@ -48,32 +39,32 @@
 			<h3>Farm</h3>
 			<h4>(earns 10-20 golds)</h4>
 			<form action="process.php" method="post">
-				<input type="hidden" name="action" value="farm">
-				<input type="submit" value="Find Gold!">
+				<input type="hidden" name="find_gold" value="farm">
+				<input class="goldbtn" type="submit" value="Find Gold!">
 			</form>
 		</div>
 		<div class="col cave">
 			<h3>Cave</h3>
 			<h4>(earns 5-10 golds)</h4>
 			<form action="process.php" method="post">
-				<input type="hidden" name="action" value="cave">
-				<input type="submit" value="Find Gold!">
+				<input type="hidden" name="find_gold" value="cave">
+				<input class="goldbtn" type="submit" value="Find Gold!">
 			</form>
 		</div>
 		<div class="col house">
 			<h3>House</h3>
 			<h4>(earns 2-5 golds)</h4>
 			<form action="process.php" method="post">
-				<input type="hidden" name="action" value="house">
-				<input type="submit" value="Find Gold!">
+				<input type="hidden" name="find_gold" value="house">
+				<input class="goldbtn" type="submit" value="Find Gold!">
 			</form>
 		</div>
 		<div class="col casino">
 			<h3>Casino!</h3>
 			<h4>(earns/takes 0-50 golds)</h4>
 			<form action="process.php" method="post">
-				<input type="hidden" name="action" value="casino">
-				<input type="submit" value="Find Gold!">
+				<input type="hidden" name="find_gold" value="casino">
+				<input class="goldbtn" type="submit" value="Find Gold!">
 			</form>
 		</div>
 	</div>
@@ -81,11 +72,11 @@
 		<label>Activities:</label>
 		<div class="feedback">
 			<?php 
-				if (isset($_SESSION['feedback'])){
+				if (isset($_SESSION['feedback']['gold'])){
 					// var_dump($_SESSION);
 					for($i = count($_SESSION['feedback']['gold'])-1; $i>=0; $i--){
-						$place = $_SESSION['feedback']['place'][$i];
 						$gold = $_SESSION['feedback']['gold'][$i];
+						$place = $_SESSION['feedback']['place'][$i];
 						$time = $_SESSION['feedback']['time'][$i];
 						if ($gold >= 0){
 							echo '<p class="earned">You entered a '.$place.' and earned '.$gold.' golds. ('.$time.')</p>';
@@ -98,7 +89,7 @@
 		</div>
 		<div class="reset-form">
 			<form action="process.php" method="post">
-				<input type="hidden" name="action" value="reset">
+				<input type="hidden" name="reset" value="reset">
 				<input type="submit" value="Reset">
 			</form>
 		</div>
