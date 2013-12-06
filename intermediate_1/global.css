@@ -2,3 +2,63 @@ body{
 	font-family: helvetica;
 }
 
+.container{
+	margin: 0 auto;
+	width: 930px;
+	margin-top: 50px;
+}
+
+.status .gold-amount{
+	border: 1px solid;
+	display: inline-block;
+	vertical-align: bottom;
+	width: 100px;
+	height: 18px;
+	padding: 3px;
+	margin: 0px 0px -4px 10px;
+}
+
+.destinations{
+	margin-top: 50px;
+}
+
+.col{
+	width: 200px;
+	height: 150px;
+	border: 1px solid black;
+	float: left;
+	margin: 10px;
+	padding: 5px;
+	text-align: center;
+}
+
+.footer{
+	clear: both;
+	margin-top: 50px;
+	padding: 30px;
+}
+
+.feedback{
+	padding: 10px;
+	border: 1px solid;
+	height: 150px;
+	overflow-y: scroll;
+	font-size: 10pt;
+}
+
+.feedback p{
+	margin: 2px 0px;
+}
+
+.footer form{
+	float: right;
+}
+
+.earned{
+	color: green;
+}
+
+.lost{
+	color: red;
+}
+
