@@ -7,6 +7,9 @@
 			$_SESSION['input'][$key] = $value;
 			if (empty($value)){
 				$_SESSION['error'][$key] = 'cannot be empty';
+
+				//Unset so passwords don't get filled in again
+				// unset($_SESSION['success'][$key]);
 				continue;
 			}
 			//Parse inputted values
@@ -36,7 +39,7 @@
 					}
 					break;
 				case 'password':
-					if (strlen($value)<5) {
+					if (strlen($value)<6) {
 						$_SESSION['error'][$key] = 'Password must be at least 6 characters';
 						unset($_SESSION['success'][$key]);
 					} else {
@@ -67,8 +70,10 @@
 			}//end switch
 		} //end foreach loop
 
-		//Try to upload file
-		if ($_FILES['file']['error'] > 0){
+		//Validate file upload
+		if ($_FILES['file']['size'] == 0){
+			$_SESSION['error']['file'] = "Please upload a picture";
+		} else if ($_FILES['file']['error'] > 0){
 			$_SESSION['error']['file'] = "Error on file upload Return Code: ".$_FILES['file']['error'];
 		} else {
 			$directory = 'upload/';
@@ -80,12 +85,14 @@
 				//var_dump($_FILES);
 				if (!move_uploaded_file($_FILES['file']['tmp_name'], $file_path)){
 					$_SESSION['error']['file'] = $file_name." could not be saved";
+				} else {
+					unset($_SESSION['error']['file']);
 				}
 			}
 		}
 
 		//Check if validation was successful.
-		if (!isset($_SESSION['error'])) $_SESSION['validated'] = true;
+		if (!isset($_SESSION['error']) || count($_SESSION['error'])==0) $_SESSION['validated'] = true;
 	}
 
 	if (isset($_POST['reset'])) $_SESSION = array();
