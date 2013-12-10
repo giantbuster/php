@@ -19,55 +19,90 @@
 </head>
 <body>
 <div class="container">
-	<h1>Login and Registration</h1>
-	<form action="process.php" method="post">
-		<div class="row">
-			<div class="col field-label">
-				<label>First name</label>
+	<div class="register">
+		<h1>Register</h1>
+		<?php
+			if(isset($_SESSION['error'])){
+				foreach($_SESSION['error'] as $name => $message){
+					echo '<p class="error">'.$message.'</p>';
+				}
+			} elseif(isset($_SESSION['success'])) {
+				echo '<p class="success">'.$_SESSION['success'].'</p>';
+			}
+		?>
+		<form action="process.php" method="post">
+			<input type="hidden" name="action" value="register">
+			<div class="row">
+				<div class="col field-label">
+					<label>First name</label>
+				</div>
+				<div class="col">
+					<input type="text" name="first_name" placeholder="Michael">
+				</div>
 			</div>
-			<div class="col">
-				<input type="text" name="first_name" placeholder="Michael">
-			</div>
-		</div>
 
-		<div class="row">
-			<div class="col field-label">
-				<label>Last name</label>
+			<div class="row">
+				<div class="col field-label">
+					<label>Last name</label>
+				</div>
+				<div class="col">
+					<input type="text" name="last_name" placeholder="Choi">
+				</div>
 			</div>
-			<div class="col">
-				<input type="text" name="last_name" placeholder="Choi">
-			</div>
-		</div>
 
-		<div class="row">
-			<div class="col field-label">
-				<label>Email</label>
+			<div class="row">
+				<div class="col field-label">
+					<label>Email</label>
+				</div>
+				<div class="col">
+					<input type="text" name="email" placeholder="your_email@example.com">
+				</div>
 			</div>
-			<div class="col">
-				<input type="text" name="last_name" placeholder="your_email@example.com">
-			</div>
-		</div>
 
+			<div class="row">
+				<div class="col field-label">
+					<label>Password</label>
+				</div>
+				<div class="col">
+					<input type="password" name="password" placeholder="Password">
+				</div>
+			</div>
 
+			<div class="row">
+				<div class="col field-label">
+					<label>Confirm password</label>
+				</div>
+				<div class="col">
+					<input type="password" name="confirm" placeholder="Confirm password">
+				</div>
+			</div>
 
-		<div class="row">
-			<div class="col field-label">
-				<label>Password</label>
+			<input type="submit" value="Register">
+		</form>
+	</div>
+	<div class="login">
+		<h3>Login</h3>
+		<form action="process.php" method="post">
+			<input type="hidden" name="action=" value="login">
+			<div class="row">
+				<div class="col field-label">
+					<label>Email</label>
+				</div>
+				<div class="col">
+					<input type="text" name="last_name" placeholder="abc@123.com">
+				</div>
 			</div>
-			<div class="col">
-				<input type="password" name="password" placeholder="Password">
-			</div>
-		</div>
 
-		<div class="row">
-			<div class="col field-label">
-				<label>Confirm password</label>
+			<div class="row">
+				<div class="col field-label">
+					<label>Password</label>
+				</div>
+				<div class="col">
+					<input type="password" name="password" placeholder="Password">
+				</div>
 			</div>
-			<div class="col">
-				<input type="password" name="confirm" placeholder="Confirm password">
-			</div>
-		</div>
-	</form>
+		</form>
+	</div>
 </div>
 </body>
 </html>
