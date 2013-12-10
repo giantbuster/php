@@ -1,16 +1,13 @@
 <?php 
+	// Jefferson Lam
+	// 12-9-13 
+	// PHP with MySQL : Basic : Email Database
+
 	session_start();
 ?>
 
 <!DOCTYPE html>
 <html>
-
-<!-- 
-	Jefferson Lam
-	12-9-13 
-	PHP with MySQL : Basic Assignment 2 : Email Database
--->
-
 <head>
 	<meta charset="UTF-8">
 	<title>PHP with MySQL : Basic Assignment 2 : Email Database</title>
