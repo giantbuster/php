@@ -6,6 +6,10 @@
 
 	session_start();
 	require('connection.php');
+
+	if (!isset($_SESSION['rSuccess'])){
+		header('Location: index.php');
+	} 
 ?>
 
 <!DOCTYPE html>
@@ -24,9 +28,6 @@
 			echo '<h1 class="success">'.$_SESSION['rSuccess'].'</h1>';
 		} else if (isset($_SESSION['user_id'])) {
 			echo "<h1>You're logged in</h1>";
-		} else {
-			echo "<h1>You are not logged in<h1>";
-			exit;
 		}
 	?>
 	<div class="info">
