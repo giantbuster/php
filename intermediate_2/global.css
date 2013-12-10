@@ -6,6 +6,7 @@
 .container{
 	width: 400px;
 	margin: 0 auto;
+	margin-top: 20px;
 	font-family: helvetica;
 	text-align: center;
 	/*border: 1px solid;*/
@@ -58,6 +59,6 @@ h1, h3{
 }
 
 .error{
-	font-size: 12pt;
+	font-size: 10pt;
 	color: red;
 }

@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	require('connection.php');
-
+	
 
 	//register()
 	//-----------
@@ -12,29 +12,36 @@
 		//Validate each field in form
 		foreach ($post as $key => $value) {
 			if(empty($value)){
-				$_SESSION['error'][$key] = $key . " cannot be blank";
+				$_SESSION['error']['register'][$key] = $key . " cannot be blank";
 			} else {
 				switch ($key) {
 					case 'first_name':
 					case 'last_name':
 						if(is_numeric($value)) {
-							$_SESSION['error'][$key] = $key . ' cannot contain numbers';
+							$_SESSION['error']['register'][$key] = 'Name cannot contain numbers';
 						}
 						break;
 					case 'email':
 						if(!filter_var($value, FILTER_VALIDATE_EMAIL)){
-							$_SESSION['error'][$key] = $key . ' is not a valid email';
+							$_SESSION['error']['register'][$key] = $value . ' is not a valid email';
+						} else {
+							//Check if email already exists in database
+							$query = "SELECT email FROM users WHERE email ='".$value."'";
+							$result = fetchRecord($connection, $query);
+							if ($result != NULL){
+								$_SESSION['error']['register'][$key] ='Email already exists';
+							}
 						}
 						break;
 					case 'password':
 						$password = $value;
 						if(strlen($value) < 5) {
-							$_SESSION['error'][$key] = $key . ' must be greater than 5 characters';
+							$_SESSION['error']['register'][$key] = 'Password must be greater than 5 characters';
 						}
 						break;
-					case 'confirm_password':
-						if($password != $value) {
-							$_SESSION['error'][$key] = 'Passwords do not match';
+					case 'confirm':
+						if(!isset($password) || $password != $value) {
+							$_SESSION['error']['register'][$key] = 'Passwords do not match';
 						}
 					break;
 				}
@@ -48,7 +55,7 @@
 		}
 
 		//Complete validation if there are no errors
-		$_SESSION['success'] = "Registration successful";
+		$_SESSION['rSuccess'] = "Registration successful";
 
 		//Create new entry in database
 		//Hash the password
@@ -75,6 +82,42 @@
 		exit;
 	} // /registration()
 
+
+	//login()
+	//------------
+	//Processes the login form
+	function login($connection, $post){
+		//Check if either email or password fields are empty
+		if(empty($post['email']) || empty($post['password'])){
+			$_SESSION['error']['login'] = "Email or Password cannot be blank";
+		} else {
+			//Otherwise, fields are not empty. Process inputted password and email
+			$query = "SELECT id, password
+					  FROM users
+					  WHERE email = '".$post['email']."'";
+			$result = mysqli_query($connection, $query);
+			$row = mysqli_fetch_assoc($result);
+
+			//Check if database contains email
+			if(empty($row)){
+				$_SESSION['error']['login'] = 'Email not found';
+			} else {
+				//Check if password is correct
+				if(crypt($post['password'], $row['password']) != $row['password']) {
+					$_SESSION['error']['login'] = 'Incorrect Password';
+				} else {
+				//Log in!
+					$_SESSION['user_id'] = $row['id'];
+					header('Location: profile.php?id='.$row['id']);
+					exit;
+				}
+			}
+		}
+		header('Location: index.php');
+		exit;
+	} // /login()
+
+
 	//logout()
 	//--------
 	//Logs out a user and destroys session. 
@@ -84,14 +127,21 @@
 		exit;
 	}
 
-	//---------
+	//=======================================
 
-
-	if (isset($_POST['action']) && $_POST['action'] == 'register'){
-		register($connection, $_POST);
-	}
-
-	if (isset($_POST['action']) && $_POST['action'] == 'logout'){
-		logout($_POST);
+	
+	//Figure out which form was inputted
+	if (isset($_POST['action'])){
+		switch($_POST['action']){
+			case 'register':
+				register($connection, $_POST);
+				break;
+			case 'login':
+				login($connection, $_POST);
+				break;
+			case 'logout':
+				logout($connection, $_POST);
+				break;
+		}
 	}
 ?>

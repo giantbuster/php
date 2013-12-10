@@ -22,13 +22,11 @@
 	<div class="register">
 		<h1>Register</h1>
 		<?php
-			if(isset($_SESSION['error'])){
-				foreach($_SESSION['error'] as $name => $message){
-					echo '<p class="error">'.$message.'</p>';
+			if(isset($_SESSION['error']['register'])){
+				foreach($_SESSION['error']['register'] as $key => $value){
+					echo '<p class="error">'.$value.'</p>';
 				}
-			} elseif(isset($_SESSION['success'])) {
-				echo '<p class="success">'.$_SESSION['success'].'</p>';
-			}
+			} 
 		?>
 		<form action="process.php" method="post">
 			<input type="hidden" name="action" value="register">
@@ -82,14 +80,19 @@
 	</div>
 	<div class="login">
 		<h3>Login</h3>
+		<?php
+			if(isset($_SESSION['error']['login'])){
+				echo '<p class="error">'.$_SESSION['error']['login'].'</p>';
+			} 
+		?>
 		<form action="process.php" method="post">
-			<input type="hidden" name="action=" value="login">
+			<input type="hidden" name="action" value="login">
 			<div class="row">
 				<div class="col field-label">
 					<label>Email</label>
 				</div>
 				<div class="col">
-					<input type="text" name="last_name" placeholder="abc@123.com">
+					<input type="text" name="email" placeholder="abc@123.com">
 				</div>
 			</div>
 
@@ -101,6 +104,7 @@
 					<input type="password" name="password" placeholder="Password">
 				</div>
 			</div>
+			<input type="submit" value="Login">
 		</form>
 	</div>
 </div>
