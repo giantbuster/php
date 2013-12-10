@@ -1,0 +1,80 @@
+.container{
+	font-family: helvetica;
+}
+
+.register{
+	/*border: 1px solid black;*/
+	margin: 0 auto;
+	width: 450px;
+}
+
+.account-info .row{
+	margin-bottom: 15px;
+}
+
+.account-info .col {
+	width: 190px;
+	display: inline-block;
+}
+
+.account-info .field-label{
+	text-align: right;
+	padding-right: 25px;
+}
+
+.topics{
+	margin: 0 auto;
+	border: 1px solid black;
+	padding: 10px 0px;
+}
+
+.topics .item{
+	width: 145px;
+	display: inline-block;
+	font-size: 10pt;
+}
+
+.error{
+	color: red;
+}
+
+.data{
+	width: 700px;
+	margin: 0 auto;
+}
+
+.data h3{
+	text-align: center;
+}
+
+.topic-list{
+	margin: 25px 0px;
+}
+
+.topic-list:not(:first-child){
+	border-bottom: 1px solid lightgray;
+}
+
+.topic-list h4{
+	margin: 0px 0px 20px 0px;
+}
+
+.subscribers{
+	width: 225px;
+	height: 200px;
+	/*border: 1px solid;*/
+	display: inline-block;
+	text-align: center;
+}
+
+.subscribers img{
+	width: 200px;
+	height: 150px;
+}
+
+.subscribers h5{
+	margin: 0px;
+	padding: 0px;
+	font-size: 12pt;
+	font-weight: normal;
+}
