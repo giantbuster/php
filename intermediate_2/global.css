@@ -1,0 +1,25 @@
+.container{
+	width: 400px;
+	margin: 0 auto;
+	font-family: helvetica;
+	text-align: center;
+	/*border: 1px solid;*/
+}
+
+.col{
+	width: 200px;
+	display: inline-block;
+	text-align: right;
+}
+
+.field-label{
+	width: 135px;
+}
+
+input{
+	width: 160px;
+}
+
+*{
+	/*border: 1px solid;*/
+}
