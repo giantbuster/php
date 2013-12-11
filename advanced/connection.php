@@ -17,8 +17,11 @@
 		$data = array();
 
 		$result = mysqli_query($connection, $query);
-		while($row = mysqli_fetch_assoc($result))
-		{
+		if ($result == NULL){
+			return NULL;
+		}
+		
+		while($row = mysqli_fetch_assoc($result)){
 			$data[] = $row;
 		}
 
@@ -36,5 +39,5 @@
 		}
 		return mysqli_fetch_assoc($result);
 	}
-	
+
 ?>

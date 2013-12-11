@@ -1,0 +1,218 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+.container{
+	font-family: helvetica;
+}
+
+.navbar{
+	width: 100%;
+	height: 50px;
+	background: lightgray;
+	margin-bottom: 50px;
+}
+
+.navbar h2{
+	padding: 12px;
+}
+
+.navbar .left{
+	float: left;
+}
+
+.navbar .right{
+	float: right;
+	padding: 12px;
+}
+
+.welcome, .logout{
+	display: inline-block;
+}
+
+.logout{
+	width: 100px;
+	margin-left: 70px;
+	text-align: center;
+}
+
+.logout input{
+	background: none;
+	border: none;
+	text-decoration: underline;
+	color: blue;
+}
+
+.logout input:hover{
+	cursor: pointer;
+}
+
+.content h1{
+	text-align: center;
+}
+
+.content *{
+	margin: 3px;
+}
+
+.modal h1{
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.modal{
+	width: 460px;
+	padding: 20px 40px;
+	margin: 0 auto;
+	border: 1px solid gray;
+	border-radius: 15px;
+}
+
+.modal .footer{
+	margin-top: 25px;
+	font-size: 9pt;
+	text-align: center;
+	color: gray;
+}
+
+.register input{
+	width: 200px;
+	padding: 3px;
+}
+
+.login input{
+	width: 200px;
+	padding: 3px;
+}
+
+.login input[type=submit]{
+	width: 100px;
+	padding: 3px;
+}
+
+.modal label{
+	font-size: 11pt;
+	font-weight: bold;
+}
+
+.field-label{
+	text-align: left;
+}
+
+.submit{
+	margin-top: 14px;
+	text-align: center;
+}
+
+.submit input{
+	font-size: 16pt;
+}
+
+.register .error{
+	font-size: 10pt;
+	color: red;
+	margin-left: 15px;
+}
+
+.login .error{
+	font-size: 10pt;
+	color: red;
+}
+
+.login{
+	width: 320px;
+}
+
+.login{
+	text-align: center;
+}
+
+.wall-content{
+	margin: 0 auto;
+	width: 700px;
+	border: 1px solid;
+}
+
+/* Message Posting Textarea */
+.post-msg{
+	margin: 50px;
+}
+
+#msg{
+	width: 97%;
+	height: 80px;
+	font-size: 10pt;
+	padding: 5px;
+}
+
+.msg-textbox .submit-msg{
+	float: right;
+}
+
+
+/* Wall Posts */
+.wall-posts{
+	margin: 0px 50px;
+}
+
+.wall-posts .main-msg h5{
+	font-size: 11pt;
+	margin: 7px 0px;
+}
+
+.wall-posts .main-msg .msg-content{
+	font-size: 11pt;
+	padding-left: 30px;
+}
+
+.wall-posts .main-msg input{
+	float: right;
+}
+
+.wall-posts .main-msg, .wall-posts .msg-comment{
+	padding: 5px;
+	margin-bottom: 2px;
+}
+
+/* Wall Post */
+
+.wall-post{
+	border-top: 1px solid lightgray;
+}
+
+/* Wall Post Comments */
+.wall-posts .comments{
+	margin-top: 30px;
+	margin-left: 10%;
+	clear: both;
+
+}
+
+.msg-comment{
+	background: #F1F1F1;
+}
+
+.comment-content{
+	font-size: 10pt;
+}
+
+.post-comment{
+	margin-top: 10px;
+	margin-bottom: 50px;
+}
+
+.post-comment .comment{
+	width: 97%;
+	height: 40px;
+	font-size: 10pt;
+	padding: 5px;
+}
+
+.post-comment .submit-comment{
+	float: right;
+}
+
+.post-comment h5{
+	margin-left: 8px;
+}

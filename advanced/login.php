@@ -16,35 +16,43 @@
 </head>
 <body>
 <div class="container">
-	<div class="login">
-		<h3>Login</h3>
-		<?php
-			if(isset($_SESSION['error']['login'])){
-				echo '<p class="error">'.$_SESSION['error']['login'].'</p>';
-			} 
-		?>
-		<form action="process.php" method="post">
-			<input type="hidden" name="action" value="login">
-			<div class="row">
-				<div class="col field-label">
-					<label>Email</label>
+	<div class="navbar">
+		<h2>Coding Dojo Wall</h2>
+	</div>
+	<div class="content">
+		<div class="login modal">
+			<h1>Login</h1>
+			<?php
+				if(isset($_SESSION['error']['login'])){
+					echo '<p class="error">'.$_SESSION['error']['login'].'</p>';
+				} 
+			?>
+			<form action="process.php" method="post">
+				<input type="hidden" name="action" value="login">
+				<div class="row">
+					<div class="col">
+						<input type="text" name="email" placeholder="abc@123.com">
+					</div>
 				</div>
-				<div class="col">
-					<input type="text" name="email" placeholder="abc@123.com">
-				</div>
-			</div>
 
-			<div class="row">
-				<div class="col field-label">
-					<label>Password</label>
+				<div class="row">
+					<div class="col">
+						<input type="password" name="password" placeholder="Password">
+					</div>
 				</div>
-				<div class="col">
-					<input type="password" name="password" placeholder="Password">
+				<div class="submit">
+					<input type="submit" value="Login">
 				</div>
+			</form>
+			<div class="footer">
+				<p>Not registered? Create an account <a href="index.php">here</a>.</p>
 			</div>
-			<input type="submit" value="Login">
-		</form>
+		</div>
 	</div>
 </div>
 </body>
 </html>
+
+<?php
+	$_SESSION = array();
+?>

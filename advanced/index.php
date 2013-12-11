@@ -6,6 +6,9 @@
 
 	session_start();
 	require('connection.php');
+	if (isset($_SESSION['user_id'])){
+		header('Location: wall.php');
+	}
 ?>
 
 <!-- Create a wall/forum page wherein users will be able the post a message and
@@ -37,68 +40,82 @@ the message was made in the last 30 minutes. -->
 <body>
 <div class="container">
 	<div class="navbar">
-		<h2>Coding Dojo</h2>
+		<h2>Coding Dojo Wall</h2>
 	</div>
-	<div class="register">
-		<h1>Register</h1>
-		<?php
-			if(isset($_SESSION['error']['register'])){
-				foreach($_SESSION['error']['register'] as $key => $value){
-					echo '<p class="error">'.$value.'</p>';
-				}
-			} 
-		?>
-		<form action="process.php" method="post">
-			<input type="hidden" name="action" value="register">
-			<div class="row">
-				<div class="col field-label">
-					<label>First name</label>
+	<div class="content">
+		<div class="register modal">
+			<h1>Register</h1>
+			<form action="process.php" method="post">
+				<input type="hidden" name="action" value="register">
+				<div class="row">
+					<div class="col field-label">
+						<label>First name</label>
+					</div>
+					<div class="col">
+						<input type="text" name="first_name" placeholder="Michael">
+						<span class="error"> 
+							<?= isset($_SESSION['error']['register']['first_name']) ? $_SESSION['error']['register']['first_name'] : '' ?> 
+						</span>
+					</div>
 				</div>
-				<div class="col">
-					<input type="text" name="first_name" placeholder="Michael">
-				</div>
-			</div>
 
-			<div class="row">
-				<div class="col field-label">
-					<label>Last name</label>
+				<div class="row">
+					<div class="col field-label">
+						<label>Last name</label>
+					</div>
+					<div class="col">
+						<input type="text" name="last_name" placeholder="Choi">
+						<span class="error"> 
+							<?= isset($_SESSION['error']['register']['last_name']) ? $_SESSION['error']['register']['last_name'] : '' ?> 
+						</span>
+					</div>
 				</div>
-				<div class="col">
-					<input type="text" name="last_name" placeholder="Choi">
-				</div>
-			</div>
 
-			<div class="row">
-				<div class="col field-label">
-					<label>Email</label>
+				<div class="row">
+					<div class="col field-label">
+						<label>Email</label>
+					</div>
+					<div class="col">
+						<input type="text" name="email" placeholder="your_email@example.com">
+						<span class="error"> 
+							<?= isset($_SESSION['error']['register']['email']) ? $_SESSION['error']['register']['email'] : '' ?> 
+						</span>
+					</div>
 				</div>
-				<div class="col">
-					<input type="text" name="email" placeholder="your_email@example.com">
-				</div>
-			</div>
 
-			<div class="row">
-				<div class="col field-label">
-					<label>Password</label>
+				<div class="row">
+					<div class="col field-label">
+						<label>Password</label>
+					</div>
+					<div class="col">
+						<input type="password" name="password" placeholder="Password">
+						<span class="error"> 
+							<?= isset($_SESSION['error']['register']['password']) ? $_SESSION['error']['register']['password'] : '' ?> 
+						</span>
+					</div>
 				</div>
-				<div class="col">
-					<input type="password" name="password" placeholder="Password">
-				</div>
-			</div>
 
-			<div class="row">
-				<div class="col field-label">
-					<label>Confirm password</label>
+				<div class="row">
+					<div class="col field-label">
+						<label>Confirm password</label>
+					</div>
+					<div class="col">
+						<input type="password" name="confirm" placeholder="Confirm password">
+						<span class="error"> 
+							<?= isset($_SESSION['error']['register']['confirm']) ? $_SESSION['error']['register']['confirm'] : '' ?> 
+						</span>
+					</div>
 				</div>
-				<div class="col">
-					<input type="password" name="confirm" placeholder="Confirm password">
+				<div class="submit">
+					<input type="submit" value="Register">
 				</div>
+			</form>
+			<div class="footer">
+				<p>Already registered? Login <a href="login.php">here</a>.</p>
 			</div>
-			<input type="submit" value="Register">
-		</form>
-		<span>Already registered? Login <a href="login.php">here</a>.</span>
-	</div>
-</div>
+		</div> <!-- /.register -->
+	</div> <!-- /.content -->
+</div> <!-- /.container -->
 </body>
 </html>
 
