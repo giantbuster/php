@@ -89,7 +89,11 @@
 		</div> <!-- post-msg -->
 		<div class="wall-posts">
 			<?php
-				$query = "SELECT CONCAT_WS(' ', users.first_name, users.last_name) AS author, users.id AS user_id, messages.message, messages.created_at, messages.id AS messages_id
+				$query = "SELECT CONCAT_WS(' ', users.first_name, users.last_name) AS author, 
+								 users.id AS user_id, 
+								 messages.message, 
+								 messages.created_at, 
+								 messages.id AS messages_id
 						  FROM messages
 						  JOIN users ON messages.users_id = users.id
 						  ORDER BY created_at DESC";
@@ -118,7 +122,10 @@
 						</div>
 						<div class="comments">
 							<?php
-								$query = "SELECT CONCAT_WS(' ', users.first_name, users.last_name) AS author, comments.comment, comments.created_at, comments.id AS comments_id
+								$query = "SELECT CONCAT_WS(' ', users.first_name, users.last_name) AS author, 
+												 comments.comment, 
+												 comments.created_at, 
+												 comments.id AS comments_id
 											FROM comments
 											JOIN messages ON messages.id = comments.messages_id
 											JOIN users ON users.id = comments.users_id
@@ -138,13 +145,13 @@
 								}
 							?>
 								<div class="post-comment">
-									<h5>Post a comment</h5>
+									<!-- <h5>Post a comment</h5> -->
 									<form action="process.php" method="post">
 										<input type="hidden" name="action" value="comment">
 										<input type="hidden" name="msg_id" value="<?= $message['messages_id'] ?>">
 										<textarea class="comment" name="msg_comment" placeholder="Write a comment..."></textarea>
 										<div class="submit-comment">
-											<input type="submit" value="Post a comment">
+											<input type="submit" value="Post comment">
 										</div>
 									</form>
 								</div> <!-- post-comment -->
