@@ -16,7 +16,7 @@
 </head>
 <body>
 <div class="container">
-	<div class="navbar">
+	<div class="header">
 		<h2>Coding Dojo Wall</h2>
 	</div>
 	<div class="content">
@@ -44,7 +44,7 @@
 					<input type="submit" value="Login">
 				</div>
 			</form>
-			<div class="footer">
+			<div class="modal-footer">
 				<p>Not registered? Create an account <a href="index.php">here</a>.</p>
 			</div>
 		</div>

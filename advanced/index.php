@@ -39,7 +39,7 @@ the message was made in the last 30 minutes. -->
 </head>
 <body>
 <div class="container">
-	<div class="navbar">
+	<div class="header">
 		<h2>Coding Dojo Wall</h2>
 	</div>
 	<div class="content">
@@ -110,7 +110,7 @@ the message was made in the last 30 minutes. -->
 					<input type="submit" value="Register">
 				</div>
 			</form>
-			<div class="footer">
+			<div class="modal-footer">
 				<p>Already registered? Login <a href="login.php">here</a>.</p>
 			</div>
 		</div> <!-- /.register -->

@@ -79,7 +79,7 @@
 		$user_id = mysqli_insert_id($connection);
 		$_SESSION['user_id'] = $user_id;
 
-		redirect('wall.php?id='.$user_id);
+		redirect('success.php');
 	}
 
 	function login($connection, $post){
@@ -104,7 +104,7 @@
 				} else {
 				//Log in!
 					$_SESSION['user_id'] = $row['id'];
-					redirect('wall.php?id='.$row['id']);
+					redirect('wall.php');
 				}
 			}
 		}
@@ -118,7 +118,7 @@
 
 	function message($connection, $post){
 		if (strlen($_POST['wall_msg'])==0){
-			redirect('wall.php?'.$_SESSION['user_id']);
+			redirect('wall.php');
 		}
 		$query = "INSERT INTO messages (message, users_id, created_at, updated_at)
 				  VALUES ('".mysqli_real_escape_string($connection, $_POST['wall_msg'])."',
@@ -126,7 +126,7 @@
 				          NOW(), 
 				          NOW())";
 		mysqli_query($connection, $query);
-		redirect('wall.php?'.$_SESSION['user_id']);
+		redirect('wall.php');
 	}
 
 	function delete_msg($connection, $post){
@@ -136,12 +136,12 @@
 		$query = "DELETE FROM messages WHERE messages.id = ".$_POST['msg_id'];
 		mysqli_query($connection, $query);
 
-		redirect('wall.php?'.$_SESSION['user_id']);
+		redirect('wall.php');
 	}
 
 	function comment($connection, $post){
 		if (strlen($_POST['msg_comment'])==0){
-			redirect('wall.php?'.$_SESSION['user_id']);
+			redirect('wall.php');
 		}
 		$query = "INSERT INTO comments (comment, messages_id, users_id, created_at, updated_at)
 				  VALUES ('".mysqli_real_escape_string($connection, $_POST['msg_comment'])."',
@@ -150,7 +150,7 @@
 				          NOW(), 
 				          NOW())";
 		mysqli_query($connection, $query);
-		redirect('wall.php?'.$_SESSION['user_id']);
+		redirect('wall.php');
 	}
 
 	//End function declarations

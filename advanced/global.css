@@ -1,34 +1,113 @@
 *{
 	margin: 0px;
 	padding: 0px;
+	border-radius: 2px;
 }
+
+input[type='text'], input[type='password']{
+	border-radius: 0px;
+}
+
+textarea{
+	border: 2px solid #cccccc;
+}
+
+/*buttons*/
+
+input[type="submit"]{
+	border: none;
+	background: none;
+	padding: 5px 8px;
+	font-size: 10pt;
+	line-height: 1.33;
+	/*border-radius: 6pt;*/
+	color: #FFFFFF;
+	background-color: #428bca;
+	border: 1px solid transparent;
+	border-color: #357ebd;
+	cursor: pointer;
+}
+
+.logout input[type="submit"]{
+	background: #2B619A;
+	border: 1px solid transparent;
+	font-size: 8pt;
+}
+
+.delete-btn input[type="submit"]{
+	background: lightgray;
+	border: 1px solid transparent;
+	color: gray;
+	font-size: 8pt;
+	padding: 2px 3px;
+}
+
+.post-comment input[type="submit"]{
+	background: #2E722C;
+	border: 1px solid transparent;
+	font-size: 8pt;
+}
+
+/* end buttons */
 
 .container{
 	font-family: helvetica;
 }
 
-.navbar{
-	width: 100%;
+.header{	
+	width: 90%;
 	height: 50px;
-	background: lightgray;
-	margin-bottom: 50px;
+	margin: 0 auto;
+	/*background: whitesmoke;*/
+	border-bottom: 2px solid #A9A9A9;
+	border-radius: 0px;
+	margin-bottom: 60px;
 }
 
-.navbar h2{
+.header h2{
 	padding: 12px;
 }
 
-.navbar .left{
+.header .left{
+	margin-left: 10%;
 	float: left;
 }
 
-.navbar .right{
+.header .right{
 	float: right;
 	padding: 12px;
 }
 
+.bottom{
+	clear: both;
+	text-align: left;
+}
+.sections{
+	margin-left: 10%;
+}
+
+.sections h3{
+	display: inline-block;
+	font-weight: normal;
+	font-size: 11pt;
+	margin: 15px;
+}
+
+.sections a{
+	text-decoration: none;
+	color: gray;
+	cursor: pointer;
+}
+
+.sections a:hover{
+	color: #444444;
+}
+
 .welcome, .logout{
 	display: inline-block;
+}
+
+.welcome{
 }
 
 .logout{
@@ -37,16 +116,7 @@
 	text-align: center;
 }
 
-.logout input{
-	background: none;
-	border: none;
-	text-decoration: underline;
-	color: blue;
-}
 
-.logout input:hover{
-	cursor: pointer;
-}
 
 .content h1{
 	text-align: center;
@@ -54,6 +124,10 @@
 
 .content *{
 	margin: 3px;
+}
+
+.content a{
+	margin: 0px; !important
 }
 
 .modal h1{
@@ -69,7 +143,7 @@
 	border-radius: 15px;
 }
 
-.modal .footer{
+.modal-footer{
 	margin-top: 25px;
 	font-size: 9pt;
 	text-align: center;
@@ -106,7 +180,7 @@
 }
 
 .submit input{
-	font-size: 16pt;
+	font-size: 12pt;
 }
 
 .register .error{
@@ -131,7 +205,7 @@
 .wall-content{
 	margin: 0 auto;
 	width: 700px;
-	border: 1px solid;
+	border: 1px solid lightgray;
 }
 
 /* Message Posting Textarea */
@@ -172,9 +246,13 @@
 
 .wall-posts .main-msg, .wall-posts .msg-comment{
 	padding: 5px;
-	margin-bottom: 2px;
+	margin-bottom: 5px;
 }
 
+.wall-posts .timestamp{
+	color: gray;
+	font-weight: normal;
+}
 /* Wall Post */
 
 .wall-post{
@@ -186,11 +264,10 @@
 	margin-top: 30px;
 	margin-left: 10%;
 	clear: both;
-
 }
 
 .msg-comment{
-	background: #F1F1F1;
+	background: #E7E7E7;
 }
 
 .comment-content{
@@ -204,7 +281,7 @@
 
 .post-comment .comment{
 	width: 97%;
-	height: 40px;
+	height: 16px;
 	font-size: 10pt;
 	padding: 5px;
 }
@@ -215,4 +292,65 @@
 
 .post-comment h5{
 	margin-left: 8px;
+}
+
+.first-comment-arrow{
+	float: right;
+	position: relative;
+	bottom: 17px;
+	right: 470px;
+	width: 0; 
+	height: 0; 
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-bottom: 15px solid #E7E7E7;
+}
+
+.footer{
+	width: 100%;
+	padding: 10px 0px;
+	margin-top: 30px;
+	background: #333333;
+	text-align: center;
+	font-size: 9pt;
+	color: white;
+}
+
+.footer a{
+	text-decoration: none;
+	color: #428BCA;
+}
+
+.profile-info{
+	width: 300px;
+	margin: 0 auto;
+	border: 1px solid #D3D3D3;
+	padding: 30px;
+}
+
+.profile-info h2{
+	font-size: 14pt;
+}
+
+.profile-info label, .profile-info h3{
+	display: inline-block;
+	width: 100px;
+	font-weight: bold;
+}
+
+.profile-info h3{
+	font-size: 12pt;
+	font-weight: normal;
+}
+
+.success{
+	text-align: center;	
+}
+
+.success h1{
+	font-size: 14pt;
+}
+
+.success p{
+	font-size: 10pt;
 }
