@@ -1,9 +1,14 @@
 <?php
 
-	define('DB_HOST', 'localhost');
-	define('DB_USER', 'root');
-	define('DB_PASS', 'root');
-	define('DB_DATABASE', 'advanced');
+	// define('DB_HOST', 'localhost');
+	// define('DB_USER', 'root');
+	// define('DB_PASS', 'root');
+	// define('DB_DATABASE', 'advanced');
+
+	define('DB_HOST', 'dojowall.db.10514924.hostedresource.com');
+	define('DB_USER', 'dojowall');
+	define('DB_PASS', 'shafTs51slouc!');
+	define('DB_DATABASE', 'dojowall');
 
 	$connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_DATABASE);
 
@@ -20,7 +25,7 @@
 		if ($result == NULL){
 			return NULL;
 		}
-		
+
 		while($row = mysqli_fetch_assoc($result)){
 			$data[] = $row;
 		}
