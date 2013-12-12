@@ -19,6 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="global.css">
 </head>
 <body>
+<?php include_once("analyticstracking.php") ?>
 <div class="container">
 	<div class="header">
 		<div class="top">

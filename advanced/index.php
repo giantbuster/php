@@ -36,8 +36,10 @@ the message was made in the last 30 minutes. -->
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 	<link rel="stylesheet" type="text/css" href="global.css">
+
 </head>
 <body>
+<?php include_once("analyticstracking.php") ?>
 <div class="container">
 	<div class="header">
 		<h2>Coding Dojo Wall</h2>
