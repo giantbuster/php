@@ -214,6 +214,7 @@ input[type="submit"]{
 }
 
 #msg{
+	max-width: 97%;
 	width: 97%;
 	height: 80px;
 	font-size: 10pt;
@@ -264,6 +265,7 @@ input[type="submit"]{
 	margin-top: 30px;
 	margin-left: 10%;
 	clear: both;
+	position: relative;
 }
 
 .msg-comment{
@@ -300,10 +302,9 @@ input[type="submit"]{
 }
 
 .first-comment-arrow{
-	float: right;
-	position: relative;
-	bottom: 17px;
-	right: 470px;
+	position: absolute;
+	top: -15px;
+	left: 20px;
 	width: 0; 
 	height: 0; 
 	border-left: 15px solid transparent;

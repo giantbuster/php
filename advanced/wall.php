@@ -121,6 +121,7 @@
 							?>
 						</div>
 						<div class="comments">
+							<div class="first-comment-arrow"></div>
 							<?php
 								$query = "SELECT CONCAT_WS(' ', users.first_name, users.last_name) AS author, 
 												 comments.comment, 
@@ -135,7 +136,7 @@
 								for ($i=0; $i < count($result); $i++) { 
 							?>
 									<div class="msg-comment">
-										<?= $i==0 ? '<div class="first-comment-arrow"></div>' : '' ?>
+										<?php //$i==0 ? '<div class="first-comment-arrow"></div>' : '' ?>
 										<h5><?= $result[$i]['author'].' - <span class="timestamp">'.timestamp(strtotime($result[$i]['created_at'])) ?></h5>
 										<div class="comment-content"> 
 											<?= stripslashes($result[$i]['comment']) ?> 
@@ -145,7 +146,6 @@
 								}
 							?>
 								<div class="post-comment">
-									<!-- <h5>Post a comment</h5> -->
 									<form action="process.php" method="post">
 										<input type="hidden" name="action" value="comment">
 										<input type="hidden" name="msg_id" value="<?= $message['messages_id'] ?>">
