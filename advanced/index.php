@@ -11,28 +11,11 @@
 	}
 ?>
 
-<!-- Create a wall/forum page wherein users will be able the post a message and
-see the message displayed by others users. Stores the messages in a table
-called 'messages' and retrieve the messages from the database.
-
-See the handout for the wireframe/ERD (available on the top right)
-
-
-
-Once you got the messages to show up (the wireframe on the left side), allow
-users to post comments for any message (store the replies/comments to the
-message in a separate table called 'comments')
-
-Extra Credit I (optional): allow the user to delete his/her own message. Extra
-Credit II (optional): allow the user to delete his/her own message but only if
-the message was made in the last 30 minutes. -->
-
-
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>PHP with MySQL : Advanced : Wall</title>
+	<title>Coding Dojo : Dojo Wall</title>
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 	<link rel="stylesheet" type="text/css" href="global.css">
@@ -44,7 +27,12 @@ the message was made in the last 30 minutes. -->
 	<div class="header">
 		<h2>Coding Dojo Wall</h2>
 	</div>
-	<div class="content">
+	<div class="content front-page">
+		<div class="about">
+			<h2>Welcome to the Coding Dojo Wall!</h2>
+			<br>
+			<p>This is an assignment for Coding Dojo. The task was to create a "wall" on which people can post messages, and post comments on messages. Try it out!</p>
+		</div>
 		<div class="register modal">
 			<h1>Register</h1>
 			<form action="process.php" method="post">

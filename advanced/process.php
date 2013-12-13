@@ -38,7 +38,7 @@
 					case 'password':
 						$password = $value;
 						if(strlen($value) < 5) {
-							$_SESSION['error']['register'][$key] = 'Password must be greater than 5 characters';
+							$_SESSION['error']['register'][$key] = 'Must be greater than 5 characters';
 						}
 						break;
 					case 'confirm':
