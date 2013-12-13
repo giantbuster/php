@@ -130,13 +130,18 @@
 		redirect('wall.php');
 	}
 
-	function delete_msg($connection, $post){
+	function deleteMessage($connection, $post){
 		$query = "DELETE FROM comments WHERE comments.messages_id = ".$_POST['msg_id'];
 		mysqli_query($connection, $query);
 
 		$query = "DELETE FROM messages WHERE messages.id = ".$_POST['msg_id'];
 		mysqli_query($connection, $query);
+		redirect('wall.php');
+	}
 
+	function deleteComment($connection, $post){
+		$query = "DELETE FROM comments WHERE comments.id = ".$_POST['msg_id'];
+		mysqli_query($connection, $query);
 		redirect('wall.php');
 	}
 
@@ -173,8 +178,11 @@
 			case 'message':
 				message($connection, $_POST);
 				break;
-			case 'delete':
-				delete_msg($connection, $_POST);
+			case 'delete_message':
+				deleteMessage($connection, $_POST);
+				break;
+			case 'delete_comment':
+				deleteComment($connection, $_POST);
 				break;
 			case 'comment':
 				comment($connection, $_POST);

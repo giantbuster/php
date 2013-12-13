@@ -38,6 +38,18 @@
 		$minutes = (int) ($seconds/60);
 		return ($minutes < 30);
 	}
+
+	function createDeleteBtn($id, $content){
+		echo '
+			<div class="delete-btn">
+				<form action="process.php" method="post">
+					<input type="hidden" name="action" value="delete_'.$content.'">
+					<input type="hidden" name="msg_id" value="'.$id.'">
+					<input type="submit" value="Delete">
+				</form>
+			</div>
+			';
+	}
 ?>
 
 <!DOCTYPE html>
@@ -89,7 +101,7 @@
 					<input type="hidden" name="action" value="message">
 					<textarea id="msg" name="wall_msg" placeholder="Write a message..."></textarea>
 					<div class="submit-msg">
-						<input type="submit" value="Post a message">
+						<input type="submit" value="Post message">
 					</div>
 				</form>
 			</div> <!-- msg-textbox -->
@@ -109,28 +121,24 @@
 			?>		
 					<div class="wall-post">
 						<div class="main-msg">
-							<h5><?= $message['author'].' - <span class="timestamp">'.timestamp(strtotime($message['created_at'])) ?></span></h5>
+							<h5><?= $message['author'].
+							        ' - <span class="timestamp">'.
+							        timestamp(strtotime($message['created_at'])) 
+							        ?></span></h5>
+							<?php
+								if ($message['user_id'] == $_SESSION['user_id']){
+									createDeleteBtn($message['messages_id'], 'message');
+								}
+							?>
 							<div class="msg-content"> 
 								<?= stripslashes($message['message']) ?> 
 							</div>
-							<?php
-								if ($message['user_id'] == $_SESSION['user_id'] && wasHalfHourAgo(strtotime($message['created_at']))){
-							?>
-								<div class="delete-btn">
-									<form action="process.php" method="post">
-										<input type="hidden" name="action" value="delete">
-										<input type="hidden" name="msg_id" value="<?= $message['messages_id'] ?>">
-										<input type="submit" value="Delete">
-									</form>
-								</div>
-							<?php
-								}
-							?>
 						</div>
 						<div class="comments">
 							<div class="first-comment-arrow"></div>
 							<?php
 								$query = "SELECT CONCAT_WS(' ', users.first_name, users.last_name) AS author, 
+												 comments.users_id AS user_id,
 												 comments.comment, 
 												 comments.created_at, 
 												 comments.id AS comments_id
@@ -147,6 +155,11 @@
 											    ' - <span class="timestamp">'.
 											    timestamp(strtotime($result[$i]['created_at'])) 
 											    ?></h5>
+									    <?php
+											if ($result[$i]['user_id'] == $_SESSION['user_id']){
+												createDeleteBtn($result[$i]['comments_id'], 'comment');
+											}
+										?>
 										<div class="comment-content"> 
 											<?= stripslashes($result[$i]['comment']) ?> 
 										</div>

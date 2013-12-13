@@ -2,6 +2,7 @@
 	margin: 0px;
 	padding: 0px;
 	border-radius: 2px;
+	/*border: 1px solid black;*/
 }
 
 input[type='text'], input[type='password']{
@@ -230,8 +231,8 @@ input[type="submit"]{
 #msg{
 	max-width: 97%;
 	width: 97%;
-	height: 80px;
-	font-size: 10pt;
+	height: 60px;
+	font-size: 11pt;
 	padding: 5px;
 }
 
@@ -245,9 +246,13 @@ input[type="submit"]{
 	margin: 0px 50px;
 }
 
+.wall-posts .main-msg{
+}
+
 .wall-posts .main-msg h5{
 	font-size: 11pt;
 	margin: 7px 0px;
+	display: inline-block;
 }
 
 .wall-posts .main-msg .msg-content{
@@ -264,9 +269,27 @@ input[type="submit"]{
 	margin-bottom: 5px;
 }
 
+.wall-posts .msg-comment h5{
+	display: inline-block;
+}
+
 .wall-posts .timestamp{
 	color: gray;
 	font-weight: normal;
+}
+
+.delete-btn{
+	float: right;
+	display: inline-block;
+}
+
+.wall-posts .main-msg .delete-btn{
+	margin-right: 6px;
+	vertical-align: bottom;
+}
+
+.comments .delete-btn{
+	margin-top: -2px;
 }
 /* Wall Post */
 
