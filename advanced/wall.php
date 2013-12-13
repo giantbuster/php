@@ -11,6 +11,7 @@
 		$seconds = time() - $time;
 		$minutes = (int) ($seconds/60);
 		$hours = (int) ($minutes/60);
+		$days = (int) ($hours/24);
 		$result = '';
 		if ($minutes < 2){
 			$result = 'just now';
@@ -20,8 +21,10 @@
 			$result = 'about an hour ago';
 		} else if ($hours < 24){
 			$result = $hours.' hours ago';
+		} else if (date('Y', $time) == date('Y')){
+			$result = date('F d', $time);
 		} else {
-			$result = date('F dS Y g:ia', $time);
+			$result = date('F d, Y', $time);
 		}
 		return $result;
 	}
