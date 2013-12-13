@@ -21,7 +21,7 @@
 		} else if ($hours < 24){
 			$result = $hours.' hours ago';
 		} else {
-			$result = date('F dS Y g:ia', strtotime($message['created_at']));
+			$result = date('F dS Y g:ia', $time);
 		}
 		return $result;
 	}
@@ -136,12 +136,14 @@
 								for ($i=0; $i < count($result); $i++) { 
 							?>
 									<div class="msg-comment">
-										<?php //$i==0 ? '<div class="first-comment-arrow"></div>' : '' ?>
-										<h5><?= $result[$i]['author'].' - <span class="timestamp">'.timestamp(strtotime($result[$i]['created_at'])) ?></h5>
+										<h5><?= $result[$i]['author'].
+											    ' - <span class="timestamp">'.
+											    timestamp(strtotime($result[$i]['created_at'])) 
+											    ?></h5>
 										<div class="comment-content"> 
 											<?= stripslashes($result[$i]['comment']) ?> 
 										</div>
-									</div>	
+									</div>
 							<?php
 								}
 							?>
