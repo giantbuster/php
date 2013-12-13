@@ -13,8 +13,12 @@
 		$hours = (int) ($minutes/60);
 		$days = (int) ($hours/24);
 		$result = '';
-		if ($minutes < 2){
+		if ($seconds < 1){
 			$result = 'just now';
+		} else if ($minutes<1){
+			$result = $seconds.' seconds ago';
+		} else if ($minutes == 1){
+			$result = 'about a minute ago';
 		} else if ($hours < 1){
 			$result = $minutes.' minutes ago';
 		} else if ($hours == 1){
