@@ -117,6 +117,7 @@
 	}
 
 	function message($connection, $post){
+		$_POST['wall_msg'] = trim($_POST['wall_msg']);
 		if (strlen($_POST['wall_msg'])==0){
 			redirect('wall.php');
 		}
@@ -140,6 +141,7 @@
 	}
 
 	function comment($connection, $post){
+		$_POST['msg_comment'] = trim($_POST['msg_comment']);
 		if (strlen($_POST['msg_comment'])==0){
 			redirect('wall.php');
 		}

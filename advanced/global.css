@@ -10,6 +10,7 @@ input[type='text'], input[type='password']{
 
 textarea{
 	border: 2px solid #cccccc;
+	font-family: helvetica;
 }
 
 /*buttons*/
@@ -301,7 +302,7 @@ input[type="submit"]{
 	max-width: 96%;
 	width: 96%;
 	height: 16px;
-	font-size: 10pt;
+	font-size: 9pt;
 	padding: 5px;
 }
 
