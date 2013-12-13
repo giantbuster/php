@@ -288,6 +288,7 @@ input[type="submit"]{
 
 .comment-content{
 	font-size: 10pt;
+	line-height: 16px;
 }
 
 .post-comment{
